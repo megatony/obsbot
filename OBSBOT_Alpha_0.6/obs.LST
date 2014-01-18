@@ -1,0 +1,129 @@
+C51 COMPILER V9.52.0.0   OBS                                                               01/07/2014 22:59:14 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE OBS
+OBJECT MODULE PLACED IN obs.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE obs.c BROWSE DEBUG OBJECTEXTEND TABS(2)
+
+line level    source
+
+   1          #include <reg51.h>
+   2          
+   3          //DC Motor Pin Block
+   4          sbit EN1 = P1^0;
+   5          sbit EN2 = P1^1;
+   6          sbit IN1 = P1^2;
+   7          sbit IN2 = P1^3;
+   8          sbit IN3 = P1^4;
+   9          sbit IN4 = P1^5;
+  10          
+  11          //LED Block
+  12          sbit RED = P3^7;
+  13          sbit YELLOW = P3^6;
+  14          sbit GREEN = P3^5;
+  15          
+  16          //ADC Read/Write/INT Block
+  17          sbit W = P3^0;
+  18          sbit R = P3^1;
+  19          sbit INT = P3^2;
+  20          
+  21          //INT Control Block
+  22          sbit C = P1^7;
+  23          
+  24          void main()
+  25          {
+  26   1      
+  27   1      int i = 0;                            //An integer for the loops
+  28   1      int BII = 0;                          //BII port control integer
+  29   1      BII = P2;                             
+  30   1      
+  31   1      R = 1;
+  32   1      for(i = 0; i<10000; i++ );
+  33   1      W = 0;
+  34   1      for(i = 0; i<10000; i++ );
+  35   1      W = 1;
+  36   1      for(i = 0; i<10000; i++ );
+  37   1        
+  38   1      
+  39   1        while(INT == 0)
+  40   1        {
+  41   2          
+  42   2      
+  43   2          C = 0;                                //Signal for loop. When you see 
+  44   2          
+  45   2        
+  46   2            if (BII >= 139)                     //For distance 10cm and belove.
+  47   2              {                                 //When sensor range at 10cm ADC produces binary 139.
+  48   3                RED = 0;                        //We control whole P2 port in if statement with "BII >= 139".
+  49   3                YELLOW = 1;                     //This statement means that range is 10cm or belove.
+  50   3                GREEN = 1;              
+  51   3                EN1 = 1;
+  52   3                EN2 = 1;
+  53   3                IN1 = 1;
+  54   3                IN2 = 0;
+  55   3                IN3 = 0;      
+C51 COMPILER V9.52.0.0   OBS                                                               01/07/2014 22:59:14 PAGE 2   
+
+  56   3                IN4 = 1;      
+  57   3              }
+  58   2              
+  59   2             
+  60   2            
+  61   2            
+  62   2            
+  63   2              
+  64   2             else if (BII < 139 & BII >= 73)      //For distance between 10cm and 20cm.
+  65   2              {                                   //When sensor range at 20cm ADC produces binary 73.
+  66   3                RED = 1;                          //We control whole P2 port in if statement with "BII < 139 & BII >= 73".
+  67   3                YELLOW = 0;                       //This statement means that range is 10cm or belove
+  68   3                GREEN = 1;
+  69   3                EN1 = 1;
+  70   3                EN2 = 1;
+  71   3                IN1 = 1;
+  72   3                IN2 = 0;
+  73   3                IN3 = 1;      
+  74   3                IN4 = 0;
+  75   3              }
+  76   2              
+  77   2             
+  78   2            
+  79   2            
+  80   2            
+  81   2              
+  82   2            else if (BII < 73 & BII >=51)         //For distance between 20cm and 30cm.
+  83   2              {                                   //When sensor range at 20cm ADC produces binary 73.
+  84   3                RED = 1;                          //We control whole P2 port in if statement with "BII < 139 & BII >= 73".
+  85   3                YELLOW = 1;                       //This statement means that range is 10cm or belove
+  86   3                GREEN = 0;
+  87   3                EN1 = 1;
+  88   3                EN2 = 1;
+  89   3                IN1 = 1;
+  90   3                IN2 = 0;
+  91   3                IN3 = 1;      
+  92   3                IN4 = 0;
+  93   3              }
+  94   2            
+  95   2          
+  96   2          
+  97   2      R = 0;
+  98   2      for(i = 0; i<10000; i++ );  
+  99   2        }
+ 100   1      
+ 101   1      C = 1;
+ 102   1      
+ 103   1      
+ 104   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    221    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

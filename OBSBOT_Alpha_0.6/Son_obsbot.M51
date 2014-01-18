@@ -1,0 +1,143 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        01/07/2014  22:59:14  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL\C51\BIN\BL51.EXE obs.obj TO Son_obsbot
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  obs.obj (OBS)
+  C:\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+
+
+LINK MAP OF MODULE:  Son_obsbot (OBS)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            IDATA   0008H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     00DDH     UNIT         ?PR?MAIN?OBS
+            CODE    08DDH     000CH     UNIT         ?C_C51STARTUP
+
+
+
+OVERLAY MAP OF MODULE:   Son_obsbot (OBS)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?OBS
+
+
+
+SYMBOL TABLE OF MODULE:  Son_obsbot (OBS)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        OBS
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  D:00B0H         PUBLIC        P3
+  C:0800H         PUBLIC        main
+  B:0090H.7       PUBLIC        C
+  B:0090H.0       PUBLIC        EN1
+  B:0090H.1       PUBLIC        EN2
+  B:0090H.2       PUBLIC        IN1
+  B:0090H.3       PUBLIC        IN2
+  B:0090H.4       PUBLIC        IN3
+BL51 BANKED LINKER/LOCATER V6.22                                                      01/07/2014  22:59:14  PAGE 2
+
+
+  B:0090H.5       PUBLIC        IN4
+  B:00B0H.1       PUBLIC        R
+  B:00B0H.0       PUBLIC        W
+  B:00B0H.7       PUBLIC        RED
+  B:00B0H.6       PUBLIC        YELLOW
+  B:00B0H.2       PUBLIC        INT
+  B:00B0H.5       PUBLIC        GREEN
+  -------         PROC          MAIN
+  -------         DO            
+  D:0004H         SYMBOL        i
+  D:0006H         SYMBOL        BII
+  -------         ENDDO         
+  C:0800H         LINE#         24
+  C:0800H         LINE#         25
+  C:0800H         LINE#         27
+  C:0803H         LINE#         28
+  C:0804H         LINE#         29
+  C:0806H         LINE#         31
+  C:0808H         LINE#         32
+  C:0813H         LINE#         33
+  C:0815H         LINE#         34
+  C:0823H         LINE#         35
+  C:0825H         LINE#         36
+  C:0833H         LINE#         39
+  C:0839H         LINE#         40
+  C:0839H         LINE#         43
+  C:083BH         LINE#         46
+  C:0846H         LINE#         47
+  C:0846H         LINE#         48
+  C:0848H         LINE#         49
+  C:084AH         LINE#         50
+  C:084CH         LINE#         51
+  C:084EH         LINE#         52
+  C:0850H         LINE#         53
+  C:0852H         LINE#         54
+  C:0854H         LINE#         55
+  C:0856H         LINE#         56
+  C:0858H         LINE#         57
+  C:085AH         LINE#         64
+  C:0880H         LINE#         65
+  C:0880H         LINE#         66
+  C:0882H         LINE#         67
+  C:0884H         LINE#         68
+  C:0886H         LINE#         69
+  C:0886H         LINE#         70
+  C:0886H         LINE#         71
+  C:0886H         LINE#         72
+  C:0886H         LINE#         73
+  C:0886H         LINE#         74
+  C:0886H         LINE#         75
+  C:0888H         LINE#         82
+  C:08AEH         LINE#         83
+  C:08AEH         LINE#         84
+  C:08B0H         LINE#         85
+  C:08B2H         LINE#         86
+  C:08B4H         LINE#         87
+  C:08B6H         LINE#         88
+BL51 BANKED LINKER/LOCATER V6.22                                                      01/07/2014  22:59:14  PAGE 3
+
+
+  C:08B8H         LINE#         89
+  C:08BAH         LINE#         90
+  C:08BCH         LINE#         91
+  C:08BEH         LINE#         92
+  C:08C0H         LINE#         93
+  C:08C0H         LINE#         97
+  C:08C2H         LINE#         98
+  C:08DAH         LINE#         99
+  C:08DAH         LINE#         101
+  C:08DCH         LINE#         104
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        OBS
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 00DDH BYTE (10%) *
+******************************************************************************
+
+Program Size: data=9.0 xdata=0 code=236
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)
